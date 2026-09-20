@@ -73,7 +73,7 @@ export function createApp() {
 			return res.redirect(frontendUrl);
 		}
 		res.json({
-			name: 'OmniCloud API',
+			name: 'VaultFlow API',
 			status: 'online',
 			frontend: frontendUrl,
 			health: '/api/health',

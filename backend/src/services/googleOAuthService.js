@@ -23,7 +23,7 @@ function readGoogleCredentials() {
 	const creds = getEffectiveGoogleOAuthCredentials();
 	if (!creds.clientId || !creds.clientSecret) {
 		console.error('[Google OAuth] Configuration missing: Client ID or Client Secret is not configured in DB or environment.');
-		throw new Error('Google Drive is not configured for this OmniCloud deployment.');
+		throw new Error('Google Drive is not configured for this VaultFlow deployment.');
 	}
 
 	return {

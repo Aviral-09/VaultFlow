@@ -61,7 +61,7 @@ export const Login: React.FC = () => {
                   VaultFlow
                 </span>
                 <p className="text-xs font-mono text-slate-700 font-bold uppercase">
-                  OmniCloud OS
+                  VaultFlow OS
                 </p>
               </div>
             </Link>
@@ -126,7 +126,7 @@ export const Login: React.FC = () => {
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Home</span>
             </Link>
-            <span className="font-mono text-xs text-slate-500 font-bold">OmniCloud Vault</span>
+            <span className="font-mono text-xs text-slate-500 font-bold">VaultFlow Vault</span>
           </div>
 
           <div className="bg-white border-2 border-black shadow-[6px_6px_0px_#000] p-8">

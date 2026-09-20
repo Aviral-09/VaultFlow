@@ -30,7 +30,7 @@ function readDropboxCredentials() {
 	const creds = getEffectiveDropboxOAuthCredentials();
 	if (!creds.clientId || !creds.clientSecret) {
 		console.error('[Dropbox OAuth] Configuration missing: Client ID or Client Secret is not configured in DB or environment.');
-		throw new Error('Dropbox is not configured for this OmniCloud deployment.');
+		throw new Error('Dropbox is not configured for this VaultFlow deployment.');
 	}
 
 	return {

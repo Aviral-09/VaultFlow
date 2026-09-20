@@ -11,7 +11,7 @@ export const Manifesto: React.FC = () => {
             <span>Architecture & Principles</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-black font-['Space_Grotesk_Variable'] mb-4">
-            THE OMNICLOUD MANIFESTO
+            THE VAULTFLOW MANIFESTO
           </h2>
           <p className="text-slate-600 font-medium text-base sm:text-lg">
             Why we engineered a unified multi-cloud operating system instead of another commercial storage silo.
@@ -36,7 +36,7 @@ export const Manifesto: React.FC = () => {
               </p>
             </div>
             <div className="pt-4 border-t-2 border-black font-mono text-xs font-bold text-slate-500">
-              OmniCloud Solution: Virtual Namespace Federation
+              VaultFlow Solution: Virtual Namespace Federation
             </div>
           </div>
 
@@ -53,11 +53,11 @@ export const Manifesto: React.FC = () => {
                 Zero Storage Markup
               </h3>
               <p className="text-slate-700 text-sm font-medium leading-relaxed mb-6">
-                Other unified cloud tools copy your files to their own paid servers, doubling your latency and charging you a steep markup. OmniCloud uses on-the-fly streaming pipelines. When you stream a 4K video or preview a photo, bytes pass directly from the provider through high-speed streams with zero intermediate disk persistence.
+                Other unified cloud tools copy your files to their own paid servers, doubling your latency and charging you a steep markup. VaultFlow uses on-the-fly streaming pipelines. When you stream a 4K video or preview a photo, bytes pass directly from the provider through high-speed streams with zero intermediate disk persistence.
               </p>
             </div>
             <div className="pt-4 border-t-2 border-black font-mono text-xs font-bold text-slate-500">
-              OmniCloud Solution: Direct Stream Engine
+              VaultFlow Solution: Direct Stream Engine
             </div>
           </div>
 
@@ -78,7 +78,7 @@ export const Manifesto: React.FC = () => {
               </p>
             </div>
             <div className="pt-4 border-t-2 border-black font-mono text-xs font-bold text-slate-500">
-              OmniCloud Solution: Local-First AES Encryption
+              VaultFlow Solution: Local-First AES Encryption
             </div>
           </div>
         </div>

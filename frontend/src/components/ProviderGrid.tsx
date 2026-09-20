@@ -89,7 +89,7 @@ export const ProviderGrid: React.FC = () => {
             SUPPORTED CLOUD ADAPTERS
           </h2>
           <p className="text-slate-600 font-medium text-base sm:text-lg">
-            OmniCloud connects directly to each provider using their native developer APIs.
+            VaultFlow connects directly to each provider using their native developer APIs.
             Your credentials and tokens remain encrypted in your local SQLite store.
           </p>
         </div>

@@ -7,7 +7,7 @@ services:
       - backend/.env
     environment:
       PORT: 8787
-      DATABASE_PATH: /app/data/omnicloud.db
+      DATABASE_PATH: /app/data/vaultflow.db
       CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:8080}
       FRONTEND_URL: ${FRONTEND_URL:-http://localhost:8080}
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
@@ -23,7 +23,7 @@ services:
       YANDEX_CLIENT_SECRET: ${YANDEX_CLIENT_SECRET:-}
       YANDEX_REDIRECT_URI: ${YANDEX_REDIRECT_URI:-http://localhost:8080/api/accounts/yandex/callback}
     volumes:
-      - omnicloud_api_data:/app/data
+      - vaultflow_api_data:/app/data
     restart: unless-stopped
 
   web:
@@ -40,4 +40,4 @@ services:
     restart: unless-stopped
 
 volumes:
-  omnicloud_api_data:
+  vaultflow_api_data:

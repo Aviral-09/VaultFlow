@@ -1,15 +1,14 @@
-<<<<<<< HEAD
 <p align="center">
-  <img src="frontend/src/assets/logo.webp" alt="OmniCloud Logo" width="192">
+  <img src="frontend/src/assets/logo.webp" alt="VaultFlow Logo" width="192">
 </p>
 
-# OmniCloud
+# VaultFlow
 
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/) [![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)](https://vuejs.org/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) [![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/) [![Express.js](https://img.shields.io/badge/Express.js_5-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/) [![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/) [![WebSocket](https://img.shields.io/badge/WebSocket-010101?style=for-the-badge&logo=socketdotio&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/) [![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) [![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/) [![Express.js](https://img.shields.io/badge/Express.js_5-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/) [![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/) [![WebSocket](https://img.shields.io/badge/WebSocket-010101?style=for-the-badge&logo=socketdotio&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
-OmniCloud is a modern, high-performance cloud drive aggregation platform that unifies multiple cloud storage providers into a single, cohesive workspace. Built with a responsive **Vue 3** client and an **Express 5** backend with a modular adapter registry, OmniCloud lets you seamlessly browse, upload, download, preview, search, and manage files across all your personal and enterprise cloud accounts through one intuitive interface.
+VaultFlow is a modern, high-performance cloud drive aggregation platform that unifies multiple cloud storage providers into a single, cohesive sovereign workspace. Built with a responsive high-speed frontend and an **Express 5** backend with a modular adapter registry, VaultFlow lets you seamlessly browse, upload, download, preview, search, and manage files across all your personal and enterprise cloud accounts through one intuitive interface.
 
-![OmniCloud Overview](frontend/src/assets/overview.webp)
+![VaultFlow Overview](frontend/src/assets/overview.webp)
 
 ---
 
@@ -236,8 +235,8 @@ Ensure your environment meets the following specifications:
 Clone the repository and install dependencies for all workspaces:
 
 ```bash
-git clone https://github.com/yourusername/omnicloud.git
-cd omnicloud
+git clone https://github.com/Aviral-09/VaultFlow.git
+cd VaultFlow
 npm install
 ```
 
@@ -445,7 +444,3 @@ npm --prefix backend test
 ## 📄 License
 
 This project is open-source software licensed under the [MIT License](LICENSE).
-=======
-# VaultFlow
-Unified cloud storage platform for managing multiple providers from one workspace with smart storage allocation, file management, real-time uploads, and secure integrations.
->>>>>>> origin/main

@@ -23,7 +23,7 @@ function readYandexCredentials() {
 	const creds = getEffectiveYandexOAuthCredentials();
 	if (!creds.clientId || !creds.clientSecret) {
 		console.error('[Yandex OAuth] Configuration missing: Client ID or Client Secret is not configured in DB or environment.');
-		throw new Error('Yandex is not configured for this OmniCloud deployment.');
+		throw new Error('Yandex is not configured for this VaultFlow deployment.');
 	}
 
 	return {

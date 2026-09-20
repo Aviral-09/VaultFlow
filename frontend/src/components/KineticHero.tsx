@@ -96,7 +96,7 @@ export const KineticHero: React.FC = () => {
                 <span className="w-3.5 h-3.5 rounded-full bg-amber-400 border border-black inline-block"></span>
                 <span className="w-3.5 h-3.5 rounded-full bg-emerald-400 border border-black inline-block"></span>
                 <span className="ml-3 font-mono text-xs font-bold uppercase tracking-wider text-black">
-                  omnicloud-core // sovereign_workspace_vfs
+                  vaultflow-core // sovereign_workspace_vfs
                 </span>
               </div>
               <div className="hidden sm:flex items-center gap-2 font-mono text-xs font-bold text-slate-700">

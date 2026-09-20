@@ -9,7 +9,7 @@ const router = Router();
 router.get('/health', (req, res) => {
 	res.json({
 		status: 'ok',
-		service: 'omnicloud-api',
+		service: 'vaultflow-api',
 		config: redactEnv(),
 		auth: getAuthSummary(req.user),
 		sync: getLastSyncReport(req.user?.id),

@@ -18,8 +18,13 @@ credentials.json
 backend/credentials.json
 
 # Database and local runtime data
-backend/omnicloud.db
-backend/omnicloud.db-*
+*.db
+*.db-*
+*.db-wal
+*.db-shm
+omnicloud.db*
+vaultflow.db*
+backend/*.db*
 *.sqlite
 *.sqlite3
 
@@ -35,3 +40,7 @@ pnpm-debug.log*
 Thumbs.db
 .vscode/
 .idea/
+
+# Local Vue migration backup
+frontend/src_vue_backup/
+

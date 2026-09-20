@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-sm text-slate-700 max-w-md font-medium leading-relaxed">
-              OmniCloud bridges disparate cloud silos—Google Drive, OneDrive, Dropbox, MEGA, pCloud, and AWS S3—into one coherent, high-speed sovereign file vault with instant cross-cloud streaming.
+              VaultFlow bridges disparate cloud silos—Google Drive, OneDrive, Dropbox, MEGA, pCloud, and AWS S3—into one coherent, high-speed sovereign file vault with instant cross-cloud streaming.
             </p>
             <div className="flex items-center gap-2 pt-2">
               <div className="neo-badge bg-emerald-100 text-emerald-900 border-black">
@@ -93,7 +93,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t-2 border-black flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs font-semibold text-slate-600">
-          <p>© {new Date().getFullYear()} VaultFlow / OmniCloud Project. Designed with Pastel Neo-Brutalism.</p>
+          <p>© {new Date().getFullYear()} VaultFlow. Built by Aviral. Designed with Pastel Neo-Brutalism.</p>
           <div className="flex items-center gap-4">
             <span className="hover:text-black cursor-pointer">Privacy & Encryption</span>
             <span>•</span>

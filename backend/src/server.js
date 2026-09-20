@@ -76,7 +76,7 @@ if (env.appMode === 'local') {
 }
 
 server.listen(env.port, () => {
-	console.log(`OmniCloud API listening on http://localhost:${env.port}`);
+	console.log(`VaultFlow API listening on http://localhost:${env.port}`);
 	const googleStatus = getSafeGoogleOAuthStatus();
 	if (googleStatus.configured) {
 		console.log(`[OAuth] Google Drive: configured (${googleStatus.source})`);

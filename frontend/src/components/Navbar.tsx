@@ -32,7 +32,7 @@ export const Navbar: React.FC = () => {
                 VaultFlow
               </span>
               <span className="neo-badge bg-[#DDD6FE] text-black text-[10px] py-0.5 px-2">
-                OmniCloud
+                Cloud OS
               </span>
             </div>
             <p className="text-xs font-mono text-slate-500 font-semibold uppercase tracking-wider">

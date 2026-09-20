@@ -4,9 +4,11 @@ import crypto from 'crypto';
 dotenv.config();
 
 const rawEncryptionSecret =
+	process.env.VAULTFLOW_ENCRYPTION_KEY ||
 	process.env.OMNICLOUD_ENCRYPTION_KEY ||
+	process.env.VAULTFLOW_SECRET_HALF ||
 	process.env.OMNICLOUD_SECRET_HALF ||
-	'omnicloud-dev-stable-encryption-key';
+	'vaultflow-dev-stable-encryption-key';
 
 const encryptionKey = crypto
 	.createHash('sha256')
@@ -21,9 +23,9 @@ export const env = {
 	appMode: process.env.APP_MODE === 'hosted' ? 'hosted' : 'local',
 	corsOrigin: process.env.CORS_ORIGIN || 'http://localhost:5173',
 	syncIntervalMinutes: Number(process.env.SYNC_INTERVAL_MINUTES || 5),
-	authCookieName: process.env.AUTH_COOKIE_NAME || 'omnicloud_session',
+	authCookieName: process.env.AUTH_COOKIE_NAME || 'vaultflow_session',
 	authSessionTtlHours: Number(process.env.AUTH_SESSION_TTL_HOURS || 24 * 14),
-	authSecret: process.env.AUTH_SECRET || process.env.OMNICLOUD_SECRET_HALF || 'omnicloud-dev-auth-secret',
+	authSecret: process.env.AUTH_SECRET || process.env.VAULTFLOW_SECRET_HALF || process.env.OMNICLOUD_SECRET_HALF || 'vaultflow-dev-auth-secret',
 	encryptionKey,
 	frontendUrl: process.env.FRONTEND_URL || process.env.CORS_ORIGIN || 'http://localhost:5173',
 	apiUrl: defaultApiUrl,
@@ -51,7 +53,7 @@ export function redactEnv() {
 		authCookieName: env.authCookieName,
 		authSessionTtlHours: env.authSessionTtlHours,
 		frontendUrl: env.frontendUrl,
-		encryptionKeyConfigured: Boolean(process.env.OMNICLOUD_ENCRYPTION_KEY || process.env.OMNICLOUD_SECRET_HALF),
+		encryptionKeyConfigured: Boolean(process.env.VAULTFLOW_ENCRYPTION_KEY || process.env.OMNICLOUD_ENCRYPTION_KEY || process.env.VAULTFLOW_SECRET_HALF || process.env.OMNICLOUD_SECRET_HALF),
 		googleClientId: env.googleClientId ? '[configured]' : '[missing]',
 		googleRedirectUri: env.googleRedirectUri,
 		onedriveClientId: env.onedriveClientId ? '[configured]' : '[missing]',

@@ -23,7 +23,7 @@ function readOneDriveCredentials() {
 	const creds = getEffectiveOneDriveOAuthCredentials();
 	if (!creds.clientId || !creds.clientSecret) {
 		console.error('[OneDrive OAuth] Configuration missing: Client ID or Client Secret is not configured in DB or environment.');
-		throw new Error('OneDrive is not configured for this OmniCloud deployment.');
+		throw new Error('OneDrive is not configured for this VaultFlow deployment.');
 	}
 
 	return {

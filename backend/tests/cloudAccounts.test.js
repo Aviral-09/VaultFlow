@@ -29,7 +29,7 @@ describe('Cloud Accounts & OAuth Production Security Suite', () => {
 		assert.throws(
 			() => createOneDriveAuthorizationRequest('test-user-1'),
 			(err) => {
-				assert.equal(err.message, 'OneDrive is not configured for this OmniCloud deployment.');
+				assert.match(err.message, /OneDrive is not configured for this (VaultFlow|OmniCloud) deployment\./);
 				assert.equal(/ONEDRIVE_CLIENT_ID|\.env/i.test(err.message), false);
 				return true;
 			}
@@ -40,7 +40,7 @@ describe('Cloud Accounts & OAuth Production Security Suite', () => {
 		assert.throws(
 			() => createDropboxAuthorizationRequest('test-user-1'),
 			(err) => {
-				assert.equal(err.message, 'Dropbox is not configured for this OmniCloud deployment.');
+				assert.match(err.message, /Dropbox is not configured for this (VaultFlow|OmniCloud) deployment\./);
 				assert.equal(/DROPBOX_CLIENT_ID|\.env/i.test(err.message), false);
 				return true;
 			}
@@ -51,7 +51,7 @@ describe('Cloud Accounts & OAuth Production Security Suite', () => {
 		assert.throws(
 			() => createYandexAuthorizationRequest('test-user-1'),
 			(err) => {
-				assert.equal(err.message, 'Yandex is not configured for this OmniCloud deployment.');
+				assert.match(err.message, /Yandex is not configured for this (VaultFlow|OmniCloud) deployment\./);
 				assert.equal(/YANDEX_CLIENT_ID|\.env/i.test(err.message), false);
 				return true;
 			}
