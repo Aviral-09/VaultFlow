@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center">
   <img src="frontend/src/assets/logo.webp" alt="OmniCloud Logo" width="192">
 </p>
@@ -444,3 +445,7 @@ npm --prefix backend test
 ## 📄 License
 
 This project is open-source software licensed under the [MIT License](LICENSE).
+=======
+# VaultFlow
+Unified cloud storage platform for managing multiple providers from one workspace with smart storage allocation, file management, real-time uploads, and secure integrations.
+>>>>>>> origin/main
