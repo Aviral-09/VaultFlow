@@ -408,8 +408,4 @@ npm --prefix backend test
 4. **Credential Redaction**:
    - API endpoints that report provider connection health or account status strictly redact secrets, displaying only configuration availability flags.
 
----
 
-## 📄 License
-
-This project is open-source software licensed under the [MIT License](LICENSE).

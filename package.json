@@ -13,8 +13,8 @@
     "start": "npm --prefix backend start"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Aviral",
+  "license": "UNLICENSED",
   "type": "module",
   "private": true,
   "workspaces": [
