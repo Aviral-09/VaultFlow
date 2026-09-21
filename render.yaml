@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: vaultflow
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: APP_MODE
+        value: hosted
+      - key: PORT
+        value: 10000
+      - key: AUTH_COOKIE_NAME
+        value: vaultflow_session
+      - key: VAULTFLOW_ENCRYPTION_KEY
+        generateValue: true
+      - key: AUTH_SECRET
+        generateValue: true

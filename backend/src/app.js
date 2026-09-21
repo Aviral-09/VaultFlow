@@ -1,5 +1,8 @@
 import express from 'express';
 import cors from 'cors';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import authRoutes from './routes/authRoutes.js';
 import healthRoutes from './routes/healthRoutes.js';
 import accountRoutes from './routes/accountRoutes.js';
@@ -10,6 +13,10 @@ import adminRoutes from './routes/adminRoutes.js';
 import allocationRoutes from './routes/allocationRoutes.js';
 import { env } from './config/env.js';
 import { attachAuthContext } from './middleware/authMiddleware.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const frontendDistPath = path.resolve(__dirname, '../../frontend/dist');
 
 export function createApp() {
 	const app = express();
@@ -67,19 +74,6 @@ export function createApp() {
 	app.use(express.json());
 	app.use(attachAuthContext);
 
-	app.get('/', (req, res) => {
-		const frontendUrl = env.frontendUrl || 'http://localhost:5173';
-		if (req.accepts('html')) {
-			return res.redirect(frontendUrl);
-		}
-		res.json({
-			name: 'VaultFlow API',
-			status: 'online',
-			frontend: frontendUrl,
-			health: '/api/health',
-		});
-	});
-
 	app.use('/api', healthRoutes);
 	app.use('/api', authRoutes);
 	app.use('/api', accountRoutes);
@@ -88,6 +82,29 @@ export function createApp() {
 	app.use('/api', settingsRoutes);
 	app.use('/api', allocationRoutes);
 	app.use('/api', adminRoutes);
+
+	if (fs.existsSync(frontendDistPath)) {
+		app.use(express.static(frontendDistPath));
+		app.get('*', (req, res, next) => {
+			if (req.path.startsWith('/api') || req.path.startsWith('/ws')) {
+				return next();
+			}
+			res.sendFile(path.resolve(frontendDistPath, 'index.html'));
+		});
+	} else {
+		app.get('/', (req, res) => {
+			const frontendUrl = env.frontendUrl || 'http://localhost:5173';
+			if (req.accepts('html')) {
+				return res.redirect(frontendUrl);
+			}
+			res.json({
+				name: 'VaultFlow API',
+				status: 'online',
+				frontend: frontendUrl,
+				health: '/api/health',
+			});
+		});
+	}
 
 	app.use((error, _req, res, _next) => {
 		console.error('[API Error]', error);
