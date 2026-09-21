@@ -75,7 +75,7 @@ if (env.appMode === 'local') {
 	});
 }
 
-server.listen(env.port, () => {
+server.listen(env.port, '0.0.0.0', () => {
 	console.log(`VaultFlow API listening on http://localhost:${env.port}`);
 	const googleStatus = getSafeGoogleOAuthStatus();
 	if (googleStatus.configured) {
