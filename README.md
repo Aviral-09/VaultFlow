@@ -1,14 +1,8 @@
-<p align="center">
-  <img src="frontend/src/assets/logo.webp" alt="VaultFlow Logo" width="192">
-</p>
-
 # VaultFlow
 
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/) [![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/) [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) [![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/) [![Express.js](https://img.shields.io/badge/Express.js_5-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/) [![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/) [![WebSocket](https://img.shields.io/badge/WebSocket-010101?style=for-the-badge&logo=socketdotio&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
 VaultFlow is a modern, high-performance cloud drive aggregation platform that unifies multiple cloud storage providers into a single, cohesive sovereign workspace. Built with a responsive high-speed frontend and an **Express 5** backend with a modular adapter registry, VaultFlow lets you seamlessly browse, upload, download, preview, search, and manage files across all your personal and enterprise cloud accounts through one intuitive interface.
-
-![VaultFlow Overview](frontend/src/assets/overview.webp)
 
 ---
 
@@ -16,7 +10,7 @@ VaultFlow is a modern, high-performance cloud drive aggregation platform that un
 
 ### ☁️ Multi-Provider Cloud Aggregation
 - **Unified Provider Layer**: Connect multiple accounts from diverse services into a normalized virtual filesystem.
-- **Supported Providers**: Google Drive, Microsoft OneDrive, Dropbox, Yandex Disk, MEGA, pCloud, and AWS S3 (or S3-compatible services like MinIO, Cloudflare R2, Backblaze B2).
+- **Supported Providers**: Google Drive, Microsoft OneDrive, MEGA, pCloud, and AWS S3 (or S3-compatible services like MinIO, Cloudflare R2, Backblaze B2).
 - **Flexible Connection Models**: Supports standard OAuth 2.0, username/password account authentication, and access key/secret key configurations.
 
 ### 🛠️ In-App Dynamic Provider Setup & Testing
@@ -76,22 +70,12 @@ Distribute files intelligently across your linked accounts:
 
 ---
 
-## 📸 Preview
-
-![OmniCloud My Drive](frontend/src/assets/screenshot-1.webp)
-![OmniCloud Storage Overview](frontend/src/assets/screenshot-2.webp)
-![OmniCloud Storage Allocation](frontend/src/assets/screenshot-3.webp)
-
----
-
 ## ☁️ Supported Providers
 
 | Provider | Status | Integration Model | Auth Mechanism | Star Sync |
 | :--- | :---: | :--- | :--- | :---: |
 | **Google Drive** | ✅ Active | OAuth 2.0 + Google Drive v3 API | Web OAuth / In-App Setup | Yes |
 | **Microsoft OneDrive** | ✅ Active | OAuth 2.0 + Microsoft Graph API | Web OAuth / In-App Setup | No (Local) |
-| **Dropbox** | ✅ Active | OAuth 2.0 + Dropbox SDK | Web OAuth / In-App Setup | No (Local) |
-| **Yandex Disk** | ✅ Active | OAuth 2.0 + Yandex REST API | Web OAuth / In-App Setup | No (Local) |
 | **MEGA** | ✅ Active | MegaJS Engine | Email & Password | No (Local) |
 | **pCloud** | ✅ Active | pCloud REST API | Email & Password | No (Local) |
 | **AWS S3 / Compatible** | ✅ Active | AWS SDK v3 (`@aws-sdk/client-s3`) | Endpoint, Bucket, Key & Secret | No (Local) |
@@ -104,13 +88,13 @@ Distribute files intelligently across your linked accounts:
 
 ```mermaid
 flowchart TD
-    subgraph Client ["Client (Vue 3 + Vite + Tailwind CSS v4)"]
+    subgraph Client ["Client (React 19 + Vite + Tailwind CSS v4)"]
         UI[Workspace UI]
         WSClient[WebSocket Client]
-        Store[Pinia Stores]
+        Store[Application State]
     end
 
-    subgraph API ["OmniCloud API Layer (Express 5)"]
+    subgraph API ["VaultFlow API Layer (Express 5)"]
         Router[REST Router]
         AuthMid[Auth & Tenant Middleware]
         WSHub[WebSocket Progress Hub]
@@ -127,8 +111,6 @@ flowchart TD
     subgraph Adapters ["Cloud Provider Adapters"]
         GDA[Google Drive Adapter]
         ODA[OneDrive Adapter]
-        DBA[Dropbox Adapter]
-        YDA[Yandex Adapter]
         MGA[MEGA Adapter]
         PCA[pCloud Adapter]
         S3A[S3-Compatible Adapter]
@@ -137,8 +119,6 @@ flowchart TD
     subgraph External ["External Cloud APIs"]
         Google[Google Drive]
         Microsoft[Microsoft Graph]
-        DropboxAPI[Dropbox]
-        YandexAPI[Yandex Disk]
         MegaAPI[MEGA]
         PCloudAPI[pCloud]
         S3API[S3 / MinIO / R2]
@@ -164,14 +144,12 @@ flowchart TD
 
     GDA <--> Google
     ODA <--> Microsoft
-    DBA <--> DropboxAPI
-    YDA <--> YandexAPI
     MGA <--> MegaAPI
     PCA <--> PCloudAPI
     S3A <--> S3API
 ```
 
-1. **Client Interaction**: The Vue 3 client interacts with the REST API for account management, metadata browsing, settings, and file streams.
+1. **Client Interaction**: The modern React 19 client interacts with the REST API for account management, metadata browsing, settings, and file streams.
 2. **Adapter Registry**: The backend resolves requests through provider-specific adapters, abstracting disparate vendor APIs into a standardized data model.
 3. **Storage Allocation**: When uploading, the Allocation Engine determines the optimal cloud account based on user-selected strategies (`most_free`, `round_robin`, `least_used`, etc.).
 4. **Streaming Transfers**: File uploads and downloads stream directly through the API server using minimal memory overhead, broadcasting live percentage and byte metrics over WebSocket.
@@ -182,7 +160,7 @@ flowchart TD
 ## 📁 Project Structure
 
 ```text
-OmniCloud/
+VaultFlow/
 ├── backend/
 │   ├── src/
 │   │   ├── adapters/          # Cloud provider adapter implementations
@@ -199,21 +177,20 @@ OmniCloud/
 │   └── package.json
 ├── frontend/
 │   ├── src/
-│   │   ├── assets/            # Logos, icons, and preview media
-│   │   ├── components/        # Reusable UI modals, explorers, and widgets
-│   │   ├── composables/       # Vue composition functions
-│   │   ├── locales/           # i18n translation dictionaries (en, id)
-│   │   ├── router/            # Vue Router definitions and navigation guards
-│   │   ├── services/          # Frontend HTTP client and WebSocket bindings
-│   │   ├── stores/            # Pinia state stores (auth, drive, upload)
-│   │   ├── views/             # Application page views
-│   │   └── style.css          # Tailwind CSS v4 styling rules
+│   │   ├── assets/            # Logos and icons
+│   │   ├── components/        # Modern React UI components
+│   │   ├── lib/               # API clients, authentication, utilities
+│   │   ├── pages/             # Application pages (Landing, Dashboard, Login, Signup)
+│   │   ├── types/             # TypeScript type definitions
+│   │   ├── App.tsx            # Main application root
+│   │   ├── main.tsx           # React DOM client entrypoint
+│   │   └── index.css          # Tailwind CSS styling rules
 │   ├── Dockerfile             # Production Nginx SPA container
 │   └── package.json
 ├── docs/
 │   └── provider-setup.md      # Detailed developer credential setup guide
 ├── docker-compose.yml         # Full-stack Docker orchestration
-└── package.json               # Root workspace scripts (npm-run-all)
+└── package.json               # Root workspace scripts
 ```
 
 ---
@@ -269,11 +246,11 @@ FRONTEND_URL=http://localhost:5173
 SYNC_INTERVAL_MINUTES=5
 
 # Secret key for AES-256-GCM token and credential encryption (Keep private!)
-OMNICLOUD_ENCRYPTION_KEY=replace-with-a-strong-random-encryption-key
-OMNICLOUD_SECRET_HALF=replace-with-a-random-half-key
+VAULTFLOW_ENCRYPTION_KEY=replace-with-a-strong-random-encryption-key
+VAULTFLOW_SECRET_HALF=replace-with-a-random-half-key
 
 # Auth configuration (used when APP_MODE=hosted)
-AUTH_COOKIE_NAME=omnicloud_session
+AUTH_COOKIE_NAME=vaultflow_session
 AUTH_SESSION_TTL_HOURS=336
 AUTH_SECRET=replace-with-a-strong-auth-secret
 
@@ -286,18 +263,10 @@ ONEDRIVE_CLIENT_ID=
 ONEDRIVE_CLIENT_SECRET=
 ONEDRIVE_TENANT_ID=common
 ONEDRIVE_REDIRECT_URI=http://localhost:8787/api/accounts/onedrive/callback
-
-DROPBOX_CLIENT_ID=
-DROPBOX_CLIENT_SECRET=
-DROPBOX_REDIRECT_URI=http://localhost:8787/api/accounts/dropbox/callback
-
-YANDEX_CLIENT_ID=
-YANDEX_CLIENT_SECRET=
-YANDEX_REDIRECT_URI=http://localhost:8787/api/accounts/yandex/callback
 ```
 
 > [!TIP]
-> **Dynamic Setup**: You do not have to fill out OAuth variables in `.env` if you prefer to enter and test them securely through the OmniCloud Web UI!
+> **Dynamic Setup**: You do not have to fill out OAuth variables in `.env` if you prefer to enter and test them securely through the VaultFlow Web UI!
 
 ### 4. Start Local Development Servers
 Run both backend and frontend concurrently with hot-reloading:
@@ -322,7 +291,7 @@ npm run bootstrap-admin -- your-email@example.com
 
 ## 🐳 Docker Deployment
 
-OmniCloud includes complete Docker orchestration featuring a production build of the Vue frontend served by Nginx alongside the Express API.
+VaultFlow includes complete Docker orchestration featuring a production build of the React frontend served by Nginx alongside the Express API.
 
 ### 1. Build and Launch Containers
 ```bash
@@ -332,7 +301,7 @@ docker compose up --build -d
 ### 2. Access the Application
 - **Application & API Gateway**: [http://localhost:8080](http://localhost:8080)
 - Nginx automatically proxies `/api` and `/ws/uploads` to the internal backend container.
-- SQLite data is automatically preserved in the `omnicloud_api_data` persistent Docker volume.
+- SQLite data is automatically preserved in the `vaultflow_api_data` persistent Docker volume.
 
 ### 3. Stop Containers
 ```bash
@@ -431,7 +400,7 @@ npm --prefix backend test
 
 1. **Token & Secret Encryption**:
    - Provider OAuth refresh tokens, access tokens, MEGA/pCloud credentials, and S3 secret keys are encrypted using **AES-256-GCM** with unique initialization vectors (IVs) and authentication tags.
-   - Master encryption keys are derived from `OMNICLOUD_ENCRYPTION_KEY` using SHA-256.
+   - Master encryption keys are derived from `VAULTFLOW_ENCRYPTION_KEY` using SHA-256.
 2. **Multi-Tenant Row-Level Security**:
    - Every database query for files, accounts, and settings enforces `user_id` filtering. Users cannot view, modify, or delete resources belonging to other accounts.
 3. **Session Cookie Hardening**:
