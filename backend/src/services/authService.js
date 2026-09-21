@@ -125,7 +125,10 @@ export function getFallbackLocalUser() {
 }
 
 export function getCookieOptions() {
-	const isHttps = env.frontendUrl.startsWith('https://') || process.env.COOKIE_SECURE === 'true';
+	const isHttps =
+		process.env.NODE_ENV === 'production' ||
+		env.frontendUrl.startsWith('https://') ||
+		process.env.COOKIE_SECURE === 'true';
 	return {
 		httpOnly: true,
 		sameSite: 'lax',

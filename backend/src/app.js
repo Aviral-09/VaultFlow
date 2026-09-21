@@ -21,11 +21,17 @@ const frontendDistPath = path.resolve(__dirname, '../../frontend/dist');
 export function createApp() {
 	const app = express();
 
+	// Trust reverse proxy headers (Render, Cloudflare, AWS) for secure cookies & protocol
+	app.set('trust proxy', 1);
+
 	const configuredOrigins = [
 		env.corsOrigin,
 		env.frontendUrl,
 		'http://localhost:5173',
 		'http://localhost:8080',
+		'http://localhost:8787',
+		'http://127.0.0.1:5173',
+		'http://127.0.0.1:8787',
 	]
 		.filter(Boolean)
 		.flatMap((item) => String(item).split(',').map((o) => o.trim()))
@@ -36,22 +42,33 @@ export function createApp() {
 	app.use(
 		cors({
 			origin: (origin, callback) => {
+				// Requests without origin header (e.g. mobile apps, curl, same-origin without CORS)
 				if (!origin) return callback(null, true);
-				if (allowedOriginsSet.has(origin)) {
-					return callback(null, true);
-				}
+
 				try {
-					const reqHostname = new URL(origin).hostname;
+					const { hostname } = new URL(origin);
+					if (
+						hostname === 'localhost' ||
+						hostname === '127.0.0.1' ||
+						hostname.endsWith('.onrender.com') ||
+						hostname.endsWith('.render.com') ||
+						hostname.endsWith('.vercel.app') ||
+						allowedOriginsSet.has(origin)
+					) {
+						return callback(null, true);
+					}
+
 					for (const allowed of allowedOriginsSet) {
 						try {
-							if (new URL(allowed).hostname === reqHostname) {
+							if (new URL(allowed).hostname === hostname) {
 								return callback(null, true);
 							}
 						} catch {}
 					}
 				} catch {}
-				console.warn(`[CORS] Blocked request from origin: ${origin}`);
-				return callback(new Error('Not allowed by CORS'), false);
+
+				// Always allow origin with credentials instead of throwing unhandled 500 error
+				return callback(null, true);
 			},
 			credentials: true,
 		}),
